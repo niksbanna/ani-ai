@@ -24,6 +24,7 @@ import { GEMINI_API_KEY, ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID } from '@env';
 
 // --- AUDIO LIBRARY IMPORT ---
 import Sound from 'react-native-sound';
+import { TypingAnimation } from 'react-native-typing-animation';
 
 // --- 3D AVATAR COMPONENT IMPORT ---
 // import Avatar from './src/components/Avatar';
@@ -68,7 +69,7 @@ const App = () => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [currentSound, setCurrentSound] = useState<Sound | null>(null);
-  const [isTTSEnabled, setIsTTSEnabled] = useState(true);
+  const [isTTSEnabled, setIsTTSEnabled] = useState(false);
 
   useEffect(() => {
     Sound.setCategory('Playback');
@@ -190,7 +191,13 @@ const App = () => {
                   source={ProfileImage} 
                   style={styles.typingAvatar}
                 />
-                <ActivityIndicator size="small" color="#E0E0E0" />
+                <TypingAnimation 
+                  dotColor="#E0E0E0"
+                  dotMargin={5}
+                  dotAmplitude={4}
+                  dotSpeed={0.2}
+                  dotRadius={3}
+                />
             </View>
         )}
 
@@ -201,7 +208,7 @@ const App = () => {
             onChangeText={setInputText}
             placeholder="Type your message..."
             placeholderTextColor="#888"
-            onSubmitEditing={handleSend} // This now works correctly
+            onSubmitEditing={handleSend}
           />
           <TouchableOpacity style={styles.sendButton} onPress={handleSend} disabled={isLoading}>
             <Text style={styles.sendButtonText}>Send</Text>

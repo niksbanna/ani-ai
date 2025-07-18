@@ -163,7 +163,7 @@ export const getAniResponse = async (
   chatHistory: Message[],
   apiKey: string,
 ): Promise<string> => {
-  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
   // --- FIX: Reverse and format the history correctly ---
   // The app's state stores messages newest-first, so we reverse it for the API.
