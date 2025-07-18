@@ -13,6 +13,7 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
+import ProfileImage from './src/assets/profile.png';
 
 // --- SERVICE IMPORTS ---
 import { getAniResponse } from './src/services/GeminiService';
@@ -152,7 +153,7 @@ const App = () => {
       >
         <View style={styles.header}>
             <Image 
-              source={{ uri: 'https://storage.googleapis.com/gemini-prod/images/4818491a-7b0b-402f-871d-04489a818c64' }} 
+              source={ProfileImage} 
               style={styles.avatarIcon}
             />
             <View style={styles.headerLeft}>
@@ -186,7 +187,7 @@ const App = () => {
         {isLoading && (
             <View style={styles.typingIndicatorContainer}>
                 <Image 
-                  source={{ uri: 'https://storage.googleapis.com/gemini-prod/images/4818491a-7b0b-402f-871d-04489a818c64' }} 
+                  source={ProfileImage} 
                   style={styles.typingAvatar}
                 />
                 <ActivityIndicator size="small" color="#E0E0E0" />
