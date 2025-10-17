@@ -1,97 +1,183 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Ani AI 🤖💬
 
-# Getting Started
+An AI-powered virtual companion chatbot built with React Native, featuring natural conversation powered by Google's Gemini AI and realistic voice synthesis using ElevenLabs.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Features
 
-## Step 1: Start Metro
+- **Natural Conversations**: Powered by Google's Gemini 2.5 Flash model for intelligent, contextual responses
+- **Voice Synthesis**: Realistic text-to-speech using ElevenLabs API
+- **Chat Interface**: Clean, intuitive messaging interface with typing animations
+- **Cross-Platform**: Works on both iOS and Android devices
+- **Conversation History**: Maintains context throughout the chat session
+- **Customizable Personality**: AI character with a unique personality and interaction style
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📋 Prerequisites
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Before you begin, ensure you have the following installed:
 
-```sh
-# Using npm
-npm start
+- **Node.js** >= 18
+- **npm** or **yarn**
+- **React Native development environment** ([Setup Guide](https://reactnative.dev/docs/set-up-your-environment))
+- **For iOS**: Xcode and CocoaPods
+- **For Android**: Android Studio and Android SDK
 
-# OR using Yarn
-yarn start
+### API Keys Required
+
+You'll need to obtain API keys from:
+
+1. **Google Gemini API**: Get your key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. **ElevenLabs API**: Sign up and get your API key from [ElevenLabs](https://elevenlabs.io/)
+3. **ElevenLabs Voice ID**: Create or select a voice and copy its ID from your ElevenLabs dashboard
+
+## 🚀 Getting Started
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/niksbanna/ani-ai.git
+   cd ani-ai
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **For iOS, install CocoaPods dependencies**:
+   ```bash
+   bundle install
+   cd ios
+   bundle exec pod install
+   cd ..
+   ```
+
+### Configuration
+
+1. **Create a `.env` file** in the root directory:
+   ```bash
+   touch .env
+   ```
+
+2. **Add your API keys** to the `.env` file:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
+   ELEVENLABS_VOICE_ID=your_elevenlabs_voice_id_here
+   ```
+
+   > **Important**: Never commit your `.env` file to version control. It's already included in `.gitignore`.
+
+### Running the App
+
+1. **Start the Metro bundler**:
+   ```bash
+   npm start
+   ```
+
+2. **Run on Android**:
+   ```bash
+   npm run android
+   ```
+
+3. **Run on iOS**:
+   ```bash
+   npm run ios
+   ```
+
+### Building for Production
+
+**Android Release Build**:
+```bash
+npm run release
 ```
 
-## Step 2: Build and run your app
+This will create an APK file in `android/app/build/outputs/apk/release/`.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🛠️ Technology Stack
 
-### Android
+- **Framework**: React Native 0.80.1
+- **Language**: TypeScript
+- **AI Model**: Google Gemini 2.5 Flash
+- **Voice Synthesis**: ElevenLabs API
+- **UI Components**: React Native core components
+- **File System**: react-native-fs
+- **Audio Playback**: react-native-sound
+- **Animations**: react-native-typing-animation
 
-```sh
-# Using npm
-npm run android
+## 📁 Project Structure
 
-# OR using Yarn
-yarn android
+```
+ani-ai/
+├── src/
+│   ├── services/
+│   │   ├── GeminiService.ts      # Gemini AI integration
+│   │   └── ElevenLabsService.ts  # Voice synthesis integration
+│   ├── components/
+│   │   └── Avatar.tsx            # 3D avatar component
+│   └── assets/                   # Images and other assets
+├── android/                      # Android native code
+├── ios/                         # iOS native code
+├── __tests__/                   # Test files
+├── App.tsx                      # Main app component
+└── package.json                 # Dependencies and scripts
 ```
 
-### iOS
+## 🧪 Development
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Running Tests
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm test
 ```
 
-Then, and every time you update your native dependencies, run:
+### Linting
 
-```sh
-bundle exec pod install
+```bash
+npm run lint
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Code Style
 
-```sh
-# Using npm
-npm run ios
+This project uses:
+- **ESLint** for code linting
+- **Prettier** for code formatting
+- **TypeScript** for type safety
 
-# OR using Yarn
-yarn ios
-```
+## 🤝 Contributing
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Step 3: Modify your app
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
-Now that you have successfully run the app, let's make changes!
+## 📄 License
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 🙏 Acknowledgments
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- [React Native](https://reactnative.dev/) - Mobile framework
+- [Google Gemini](https://ai.google.dev/) - AI conversation model
+- [ElevenLabs](https://elevenlabs.io/) - Voice synthesis
+- [React Native Community](https://github.com/react-native-community) - Tools and libraries
 
-## Congratulations! :tada:
+## 📞 Support
 
-You've successfully run and modified your React Native App. :partying_face:
+If you encounter any issues or have questions:
 
-### Now what?
+- Open an [Issue](https://github.com/niksbanna/ani-ai/issues)
+- Check the [React Native Troubleshooting Guide](https://reactnative.dev/docs/troubleshooting)
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## ⚠️ Disclaimer
 
-# Troubleshooting
+This application requires API keys from third-party services (Google Gemini and ElevenLabs). Please ensure you comply with their respective terms of service and usage policies. API usage may incur costs based on your usage volume.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Made with ❤️ using React Native
